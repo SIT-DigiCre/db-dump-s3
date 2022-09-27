@@ -33,7 +33,7 @@ jobs:
           platforms: linux/amd64
           push: true
           build-args: |
-            POSTGRES_IMAGE_TAG=13-alpine
+            POSTGRES_IMAGE_TAG=13
           tags: |
             ghcr.io/sit-digicre/pg_dump_s3:latest
             ghcr.io/sit-digicre/pg_dump_s3:${{ steps.shortened_hash.outputs.sha_short }}
