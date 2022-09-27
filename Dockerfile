@@ -11,6 +11,8 @@ ARG AWS_ACCESS_KEY_ID
 ARG AWS_SECRET_ACCESS_KEY
 ARG AWS_DEFAULT_REGION
 
+ARG ENDPOINT_URL
+
 RUN apt update
 RUN apt-get install python3 python3-pip -y
 RUN apt-get install cron -y

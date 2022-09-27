@@ -3,11 +3,12 @@ on:
   push:
     branches:
       - main
+      - endpoint-change
 
 jobs:
   build_and_publish_pg_dump_s3:
     name: Build and Publish pg_dump_s3
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/endpoint-change'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -21,7 +22,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
-          password: ${{ secrets.PACKAGES }}
+          password: ${{ secrets.GITHUB_TOKEN }}
       - name: Get short commit hash for image tag
         id: shortened_hash
         run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
@@ -32,7 +33,7 @@ jobs:
           platforms: linux/amd64
           push: true
           build-args: |
-            POSTGRES_IMAGE_TAG=latest
+            POSTGRES_IMAGE_TAG=13-alpine
           tags: |
-            ghcr.io/jflessau/pg_dump_s3:latest
-            ghcr.io/jflessau/pg_dump_s3:${{ steps.shortened_hash.outputs.sha_short }}
+            ghcr.io/sit-digicre/pg_dump_s3:latest
+            ghcr.io/sit-digicre/pg_dump_s3:${{ steps.shortened_hash.outputs.sha_short }}
