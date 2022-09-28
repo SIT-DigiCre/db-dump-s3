@@ -35,9 +35,9 @@ jobs:
           platforms: linux/amd64
           push: true
           build-args: |
-            POSTGRES_IMAGE_TAG=$POSTGRES_IMAGE_TAG
+            POSTGRES_IMAGE_TAG=${{ env.POSTGRES_IMAGE_TAG }}
           tags: |
-            ghcr.io/sit-digicre/db_dump_s3:pg-$POSTGRES_IMAGE_TAG
+            ghcr.io/sit-digicre/db_dump_s3:pg-${{ env.POSTGRES_IMAGE_TAG }}
             ghcr.io/sit-digicre/db_dump_s3:pg-${{ steps.shortened_hash.outputs.sha_short }}
 
   build_and_publish_mysqldump_s3:
@@ -68,7 +68,7 @@ jobs:
           platforms: linux/amd64
           push: true
           build-args: |
-            MYSQL_IMAGE_TAG=$MYSQL_IMAGE_TAG
+            MYSQL_IMAGE_TAG=${{ env.MYSQL_IMAGE_TAG }}
           tags: |
-            ghcr.io/sit-digicre/db_dump_s3:mysql-$MYSQL_IMAGE_TAG
-            ghcr.io/sit-digicre/db_dump_s3:pg-${{ steps.shortened_hash.outputs.sha_short }}
+            ghcr.io/sit-digicre/db_dump_s3:mysql-${{ env.MYSQL_IMAGE_TAG }}
+            ghcr.io/sit-digicre/db_dump_s3:mysql-${{ steps.shortened_hash.outputs.sha_short }}
