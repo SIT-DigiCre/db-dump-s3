@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # pull db dump
-MYSQLDUMP_COMMAND="mysqldump ${MYSQLDUMP_ARGS:-} -h ${DB_HOST} -u ${DB_USER} -p${DB_PASSWORD} ${DB_NAME}"
+MYSQLDUMP_COMMAND="mysqldump ${MYSQLDUMP_ARGS:-} -h ${DB_HOST} -u ${DB_USER} -p'${DB_PASSWORD}' ${DB_NAME}"
 
 # upload dump to s3
 if [ -z ${ENDPOINT_URL} ]; then
