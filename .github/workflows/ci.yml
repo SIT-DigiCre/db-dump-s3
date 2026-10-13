@@ -42,7 +42,7 @@ jobs:
     name: Build and Publish mysqldump_s3
     runs-on: ubuntu-latest
     env:
-      MYSQL_IMAGE_TAG: 8.0.30-debian
+      MYSQL_IMAGE_TAG: 8.0-debian
     steps:
       - name: Checkout
         uses: actions/checkout@v2
