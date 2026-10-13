@@ -2,7 +2,7 @@
 
 # fill crontab.txt
 touch /var/log/cron-1.log
-echo "DB_URL=$DB_URL" >> ./crontab.txt
+echo "DB_URL=$DB_URL" > ./crontab.txt
 echo "PG_DUMP_ARGS=${PG_DUMP_ARGS:-\"\"}" >> ./crontab.txt
 echo "BUCKET_NAME=\"$BUCKET_NAME\"" >> ./crontab.txt
 echo "FILE_PREFIX=${FILE_PREFIX:-\"\"}" >> ./crontab.txt
