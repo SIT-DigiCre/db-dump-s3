@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - main
-      - endpoint-change
-      - support-mysqldump
 
 jobs:
   build_and_publish_pg_dump_s3:
