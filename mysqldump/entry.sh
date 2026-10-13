@@ -2,7 +2,7 @@
 
 # fill crontab.txt
 touch /var/log/cron-1.log
-echo "DB_HOST=$DB_HOST" >> ./crontab.txt
+echo "DB_HOST=$DB_HOST" > ./crontab.txt
 echo "DB_NAME=$DB_NAME" >> ./crontab.txt
 echo "DB_USER=$DB_USER" >> ./crontab.txt
 echo "DB_PASSWORD=$DB_PASSWORD" >> ./crontab.txt
